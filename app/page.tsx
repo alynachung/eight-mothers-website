@@ -36,6 +36,7 @@ export default function HomePage({ params }: { params: { lang?: Lang } }) {
   return (
     <main className="min-h-screen font-sans" style={{ backgroundColor: '#0A0A0C', color: '#F5EFE6' }}>
       
+      {/* 1. Hero 區塊 */}
       <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden px-6 text-center">
         <div className="max-w-4xl mx-auto flex flex-col items-center gap-8">
           <h1 className="text-4xl md:text-6xl font-light tracking-[0.2em]" style={{ color: '#D4C3A3' }}>
@@ -55,7 +56,6 @@ export default function HomePage({ params }: { params: { lang?: Lang } }) {
               {dict.hero.ctaBlessing}
             </Link>
             
-            {/* 🔗 這裡也接通了：點擊「成為認養家人」會直接前往 /stewardship */}
             <Link 
               href="/stewardship"
               className="px-8 py-4 border font-medium tracking-wider transition-all duration-300 inline-block text-center"
@@ -67,38 +67,48 @@ export default function HomePage({ params }: { params: { lang?: Lang } }) {
         </div>
       </section>
 
-      <section className="py-32 px-6">
+      {/* 2. 世界觀敘事區塊 */}
+      <section className="py-24 px-6 border-b" style={{ borderColor: 'rgba(197, 168, 128, 0.1)' }}>
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-12">
-          <div className="w-[1px] h-24 opacity-30" style={{ backgroundColor: '#C5A880' }} />
+          <div className="w-[1px] h-16 opacity-30" style={{ backgroundColor: '#C5A880' }} />
           <h2 className="text-3xl md:text-4xl font-light tracking-widest" style={{ color: '#D4C3A3' }}>
             {dict.worldview.title}
           </h2>
           <p className="text-lg leading-loose opacity-70">
             {dict.worldview.body}
           </p>
-          <div className="w-[1px] h-24 opacity-30" style={{ backgroundColor: '#C5A880' }} />
+          
+          {/* 🆕 這裡新增了通往「如何運用範例」的優雅傳送門 */}
+          <Link 
+            href="/practice"
+            className="mt-4 text-sm tracking-widest hover:opacity-80 transition-all flex items-center gap-2"
+            style={{ color: '#C5A880' }}
+          >
+            探索聖域實際運用範例 ➔
+          </Link>
         </div>
       </section>
-{/* 3. 現地參與導引區塊 (對應藍圖 Pillar 4) */}
-<section className="py-32 px-6 border-t" style={{ borderColor: 'rgba(197, 168, 128, 0.1)' }}>
-  <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-8">
-    <h2 className="text-2xl md:text-3xl font-light tracking-[0.2em]" style={{ color: '#D4C3A3' }}>
-      從數位感官，回歸大地母親
-    </h2>
-    <p className="text-base opacity-60 leading-relaxed">
-      當線上的祝福已然飽滿，我們邀請妳親自走入聖域，<br />
-      聽風的聲音，觸摸土壤的溫度。
-    </p>
-    <Link 
-      href="/visit"
-      className="px-10 py-4 border tracking-[0.2em] font-light transition-all hover:bg-white/5"
-      style={{ borderColor: '#C5A880', color: '#D4C3A3' }}
-    >
-      預約實地參與
-    </Link>
-  </div>
-</section>
-    </main>
 
+      {/* 3. 現地參與導引區塊 (O2O 閉環) */}
+      <section className="py-28 px-6">
+        <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-8">
+          <h2 className="text-2xl md:text-3xl font-light tracking-[0.2em]" style={{ color: '#D4C3A3' }}>
+            從數位感官，回歸大地母親
+          </h2>
+          <p className="text-base opacity-60 leading-relaxed">
+            當線上的祝福已然飽滿，我們邀請妳親自走入聖域，<br />
+            聽風的聲音，觸摸土壤的溫度。
+          </p>
+          <Link 
+            href="/visit"
+            className="px-10 py-4 border tracking-[0.2em] font-light transition-all hover:bg-white/5"
+            style={{ borderColor: '#C5A880', color: '#D4C3A3' }}
+          >
+            預約實地參與
+          </Link>
+        </div>
+      </section>
+
+    </main>
   );
 }
