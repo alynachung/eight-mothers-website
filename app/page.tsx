@@ -79,7 +79,26 @@ export default function HomePage({ params }: { params: { lang?: Lang } }) {
           <div className="w-[1px] h-24 opacity-30" style={{ backgroundColor: '#C5A880' }} />
         </div>
       </section>
-
+{/* 3. 現地參與導引區塊 (對應藍圖 Pillar 4) */}
+<section className="py-32 px-6 border-t" style={{ borderColor: 'rgba(197, 168, 128, 0.1)' }}>
+  <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-8">
+    <h2 className="text-2xl md:text-3xl font-light tracking-[0.2em]" style={{ color: '#D4C3A3' }}>
+      從數位感官，回歸大地母親
+    </h2>
+    <p className="text-base opacity-60 leading-relaxed">
+      當線上的祝福已然飽滿，我們邀請妳親自走入聖域，<br />
+      聽風的聲音，觸摸土壤的溫度。
+    </p>
+    <Link 
+      href="/visit"
+      className="px-10 py-4 border tracking-[0.2em] font-light transition-all hover:bg-white/5"
+      style={{ borderColor: '#C5A880', color: '#D4C3A3' }}
+    >
+      預約實地參與
+    </Link>
+  </div>
+</section>
     </main>
+
   );
 }
